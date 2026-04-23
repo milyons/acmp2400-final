@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:     
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -27,7 +27,7 @@ jobs:
       - name: Test with curl
         run: curl -f http://localhost:8000
 
-    sbom-scan:
+  sbom-scan:
     runs-on: ubuntu-latest
 
     steps:
