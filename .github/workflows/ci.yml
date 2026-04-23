@@ -16,11 +16,13 @@ jobs:
         run: docker build -t django-app .
 
       - name: Run Docker container
-        run: |
-          docker run -d -p 8000:8000 --name test-app django-app
+        run: docker run -d -p 8000:8000 --name test-app django-app
 
-      - name: Wait for app to start
-        run: sleep 5
+      - name: Check running containers
+        run: docker ps -a
+
+      - name: Wait for app
+        run: sleep 10
 
       - name: Test with curl
         run: curl -f http://localhost:8000
