@@ -16,7 +16,7 @@ jobs:
         run: docker build -t django-app .
 
       - name: Run Docker container
-        run: docker run -d -p 8000:8000 --name test-app django-app
+        run: docker run -d -p 8000:8000 -e DJANGO_SECRET_KEY="dev-secret-key" --name test-app django-app
 
       - name: Check running containers
         run: docker ps -a
